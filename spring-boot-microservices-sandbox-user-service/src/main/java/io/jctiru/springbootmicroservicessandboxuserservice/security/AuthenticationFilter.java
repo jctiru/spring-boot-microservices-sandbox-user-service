@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 	@Autowired
 	private Environment env;
+
+	@PostConstruct
+	private void postConstruct() {
+		this.setFilterProcessesUrl(env.getProperty("login.url.path"));
+	}
 
 	@Override
 	@Autowired
