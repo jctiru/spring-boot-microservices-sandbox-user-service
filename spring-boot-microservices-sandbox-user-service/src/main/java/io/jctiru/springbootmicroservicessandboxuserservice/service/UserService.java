@@ -1,8 +1,10 @@
 package io.jctiru.springbootmicroservicessandboxuserservice.service;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import io.jctiru.springbootmicroservicessandboxuserservice.shared.dto.UserDto;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
 	UserDto createUser(UserDto userDetails);
 
