@@ -13,9 +13,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/users/**").permitAll()
+				.antMatchers("/h2-console/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and()
+				.headers().frameOptions().disable();
 	}
 
 }
