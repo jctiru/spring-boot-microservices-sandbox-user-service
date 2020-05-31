@@ -1,5 +1,9 @@
 package io.jctiru.springbootmicroservicessandboxuserservice.shared.dto;
 
+import java.util.List;
+
+import io.jctiru.springbootmicroservicessandboxuserservice.ui.model.response.AlbumResponseModel;
+
 public class UserDto {
 
 	private String firstName;
@@ -8,6 +12,7 @@ public class UserDto {
 	private String password;
 	private String userId;
 	private String encryptedPassword;
+	private List<AlbumResponseModel> albumList;
 
 	public String getFirstName() {
 		return firstName;
@@ -55,6 +60,14 @@ public class UserDto {
 
 	public void setEncryptedPassword(String encryptedPassword) {
 		this.encryptedPassword = encryptedPassword;
+	}
+
+	public List<AlbumResponseModel> getAlbumList() {
+		return albumList;
+	}
+
+	public void setAlbumList(List<AlbumResponseModel> albumList) {
+		this.albumList = albumList;
 	}
 
 }
