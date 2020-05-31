@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.client.RestTemplate;
 
+import feign.Logger;
+
 @Configuration
 public class BeanDefinitions {
 
@@ -23,11 +25,16 @@ public class BeanDefinitions {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Bean
 	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
+	}
+
+	@Bean
+	public Logger.Level feignLoggerLevel() {
+		return Logger.Level.FULL;
 	}
 
 }
