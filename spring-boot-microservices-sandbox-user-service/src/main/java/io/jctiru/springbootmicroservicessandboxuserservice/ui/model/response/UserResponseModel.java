@@ -8,7 +8,7 @@ public class UserResponseModel {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private List<AlbumResponseModel> albums;
+	private List<AlbumResponseModel> albumList;
 
 	public String getUserId() {
 		return userId;
@@ -42,12 +42,12 @@ public class UserResponseModel {
 		this.email = email;
 	}
 
-	public List<AlbumResponseModel> getAlbums() {
-		return albums;
+	public List<AlbumResponseModel> getAlbumList() {
+		return albumList;
 	}
 
-	public void setAlbums(List<AlbumResponseModel> albums) {
-		this.albums = albums;
+	public void setAlbumList(List<AlbumResponseModel> albumList) {
+		this.albumList = albumList;
 	}
 
 }
