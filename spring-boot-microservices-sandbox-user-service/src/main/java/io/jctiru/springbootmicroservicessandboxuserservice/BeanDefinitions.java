@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.client.RestTemplate;
 
 import feign.Logger;
+import io.jctiru.springbootmicroservicessandboxuserservice.shared.FeignErrorDecoder;
 
 @Configuration
 public class BeanDefinitions {
@@ -35,6 +36,11 @@ public class BeanDefinitions {
 	@Bean
 	public Logger.Level feignLoggerLevel() {
 		return Logger.Level.FULL;
+	}
+
+	@Bean
+	public FeignErrorDecoder feignErrorDecoder() {
+		return new FeignErrorDecoder();
 	}
 
 }
