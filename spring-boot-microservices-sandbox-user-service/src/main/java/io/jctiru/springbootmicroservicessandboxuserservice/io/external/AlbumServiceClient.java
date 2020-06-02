@@ -16,7 +16,7 @@ import io.jctiru.springbootmicroservicessandboxuserservice.ui.model.response.Alb
 @FeignClient(name = "album-service", fallbackFactory = AlbumFallbackFactory.class)
 public interface AlbumServiceClient {
 
-	@GetMapping("/users/{userId}/albumss")
+	@GetMapping("/users/{userId}/albums")
 	public List<AlbumResponseModel> getAlbums(@PathVariable String userId);
 
 }
