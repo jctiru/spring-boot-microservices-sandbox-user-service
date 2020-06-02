@@ -31,13 +31,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-//	@Autowired
-//	private RestTemplate restTemplate;
-
 	@Autowired
 	private AlbumServiceClient albumServiceClient;
-
-//	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public UserDto createUser(UserDto userDetails) {
@@ -83,15 +78,7 @@ public class UserServiceImpl implements UserService {
 		}
 
 		UserDto userDto = modelMapper.map(userEntity, UserDto.class);
-
-//		String albumUrl = String.format("http://album-service/users/%s/albums", userId);
-//		ResponseEntity<List<AlbumResponseModel>> albumListResponse = restTemplate.exchange(albumUrl, HttpMethod.GET,
-//				null, new ParameterizedTypeReference<List<AlbumResponseModel>>() {
-//				});
-//		List<AlbumResponseModel> albumList = albumListResponse.getBody();
-
 		List<AlbumResponseModel> albumList = albumServiceClient.getAlbums(userId);
-
 		userDto.setAlbumList(albumList);
 
 		return userDto;
